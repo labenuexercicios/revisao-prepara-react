@@ -1,1 +1,1 @@
-# revisao-prepara-react
+# Preparação para o React
