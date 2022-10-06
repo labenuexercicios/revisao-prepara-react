@@ -132,8 +132,6 @@ if (isMember === true) {
 
 
 
-
-
 // meuArrayComplexo[0] ={
 //     nome: "Marco Verratti",
 //     nacionalidade: "Itália",
