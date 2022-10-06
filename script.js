@@ -336,14 +336,14 @@ for (jogador of arrayDeJogadores) {
 //a funcão que é passada como parametro pro map, sempre é uma função com 3 PARAMETROS
 //elemento = ao elemento do for of, index é o indice do array, array que é o array inteiro.
 //o filter sempre retorna um valor booleano. Se a resposta do booleano para o elemento for true, ele é adicionado ao novo array.
-const apenasDefensores = arrayDeJogadores.filter( (jogador, index, array)=>{
+const apenasDefensores = arrayDeJogadores.filter((jogador, index, array) => {
     let result = false;
-//jogador = {objeto Do Verrratti}
-//index = 0;
-//array = [{verrati}, {kimpembe}, {sergio ramos}]
-//0, 1, 2
+    //jogador = {objeto Do Verrratti}
+    //index = 0;
+    //array = [{verrati}, {kimpembe}, {sergio ramos}]
+    //0, 1, 2
 
-    if(jogador.posicao === "Defensor"){
+    if (jogador.posicao === "Defensor") {
         result = true;
     }
 
@@ -352,7 +352,7 @@ const apenasDefensores = arrayDeJogadores.filter( (jogador, index, array)=>{
 
 
 //const apenasDefensoresResumido = arrayDeJogadores.filter( (jogador, index, array)=>{
-   // return jogador.posicao === "Defensor";
+// return jogador.posicao === "Defensor";
 //});
 
 //const apenasDefensoresAindaMaisResumido = arrayDeJogadores.filter( (jogador, index, array)=> jogador.posicao === "Defensor");
@@ -360,13 +360,11 @@ const apenasDefensores = arrayDeJogadores.filter( (jogador, index, array)=>{
 
 console.log(apenasDefensores);
 
-function funcaoDoJoao(arrayDeObj, valorString){
-
+function filtrarJogador(arrayDeObj, valorString) {
     let objARetornar = {};
 
-    for(let i=0; i<arrayDeObj.length; i++){
-
-        if(arrayDeObj[i].nome === valorString){
+    for (let i = 0; i < arrayDeObj.length; i++) {
+        if (arrayDeObj[i].nome.toLowerCase() === valorString.toLowerCase()) {
 
             objARetornar.nome = arrayDeObj[i].nome;
             objARetornar.habilidades = arrayDeObj[i].habilidades;
@@ -377,14 +375,14 @@ function funcaoDoJoao(arrayDeObj, valorString){
         }
     }
 
-    if(objARetornar.nome !== valorString){
+    if (objARetornar.nome && objARetornar.nome.toLowerCase() !== valorString.toLowerCase()) {
         alert("Não encontrei jogador");
-    }else{
+    } else {
         return objARetornar;
     }
 }
 
-//const objDoKimpembe = funcaoDoJoao(arrayDeJogadores, "Presnel");
+//const objDoKimpembe = filtrarJogador(arrayDeJogadores, "Presnel");
 //console.log(objDoKimpembe);
 
 //DOM
@@ -396,8 +394,8 @@ const meuParagrafo = document.getElementById("paragrafo");
 console.log(meuParagrafo.innerHTML);
 console.log(meuParagrafo.innerText);
 
- const meuLink = document.getElementById("link");
- console.log(meuLink.innerText);
+const meuLink = document.getElementById("link");
+console.log(meuLink.innerText);
 
 const minhaLista = document.getElementById("lista-filmes");
 console.log(minhaLista.innerText);
@@ -440,15 +438,41 @@ const container = document.getElementById("container");
 //inserindo no elemento contêiner o elemento de lista que foi criado
 container.insertAdjacentElement('beforeend', listaJogadores);
 
-console.log(listaJogadores);
 listaJogadores.setAttribute("id", "lista-jogadores");
 
 const elementoDeLista = document.getElementById("lista-jogadores");
-console.log(elementoDeLista);
-for(let i = 0; i < arrayDeJogadores.length; i++){
-    elementoDeLista.innerHTML+= `<li>${arrayDeJogadores[i]}</li>`;
-  
+
+for (let i = 0; i < arrayDeJogadores.length; i++) {
+    elementoDeLista.innerHTML += `<li>${arrayDeJogadores[i].nome}</li>`;
 }
 
+//<ul>INNERHTML é uma string</ul>
 
+function helloWorld() {
+    console.log("Hey, Mundo!");
+}
+
+function exibeValorDoCampo() {
+    const input = document.getElementById("campo");
+
+}
+
+function buscaJogador() {
+    //buscando o elemento do campo (input) por seu id
+    const elementoDeCampo = document.getElementById("campo");
+
+    //considerando o elemento de input preenchido, a constante textoABuscar recebe o value, isto é, o valor escrito no input.
+    const textoABuscar = elementoDeCampo.value;
+
+    //chamando a função que recebe um array e um parâmetro, e passando como argumento, o array dos meus itens, e a string com o value do campo.
+    const jogadorRetornado = filtrarJogador(arrayDeJogadores, textoABuscar);
+    if (jogadorRetornado.nome) {
+        const elementoDeLista = document.getElementById("lista-jogadores");
+        elementoDeLista.innerHTML = `<li>${jogadorRetornado.nome}</li>`;
+    }else{
+        alert("NAO ACHOU NINGUEM");
+    }
+    //imprimindo no console
+
+}
 //meuElemento.appendChild(valor)
