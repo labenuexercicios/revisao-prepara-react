@@ -297,7 +297,8 @@ const arrayDeJogadores = meuArrayComplexo;
 //        nome: "Marco Verratti",
 //        nacionalidade: "Itália",
 //        posicao: "Meio-campista",
-//        habilidades: ["passe curto", "visão de jogo", "roubada de bola"]
+//        habilidades: ["passe curto", "visão de jogo", "roubada de bola"],
+//        imagem: "http://llalala;a.verratti.jpg"
 //    },
 //    {
 //        nome: "Presnel Kimpembe",
@@ -331,4 +332,123 @@ for (jogador of arrayDeJogadores) {
     arrayDeJogadoresTransformados.push(jogadorTranformado);
 }
 
-console.log(jogadoresMapeados);
+//filter RETORNA um array com um tamanho IGUAL OU MENOR, normalmente sem alterações no corpo
+//a funcão que é passada como parametro pro map, sempre é uma função com 3 PARAMETROS
+//elemento = ao elemento do for of, index é o indice do array, array que é o array inteiro.
+//o filter sempre retorna um valor booleano. Se a resposta do booleano para o elemento for true, ele é adicionado ao novo array.
+const apenasDefensores = arrayDeJogadores.filter( (jogador, index, array)=>{
+    let result = false;
+//jogador = {objeto Do Verrratti}
+//index = 0;
+//array = [{verrati}, {kimpembe}, {sergio ramos}]
+//0, 1, 2
+
+    if(jogador.posicao === "Defensor"){
+        result = true;
+    }
+
+    return result;
+});
+
+
+//const apenasDefensoresResumido = arrayDeJogadores.filter( (jogador, index, array)=>{
+   // return jogador.posicao === "Defensor";
+//});
+
+//const apenasDefensoresAindaMaisResumido = arrayDeJogadores.filter( (jogador, index, array)=> jogador.posicao === "Defensor");
+
+
+console.log(apenasDefensores);
+
+function funcaoDoJoao(arrayDeObj, valorString){
+
+    let objARetornar = {};
+
+    for(let i=0; i<arrayDeObj.length; i++){
+
+        if(arrayDeObj[i].nome === valorString){
+
+            objARetornar.nome = arrayDeObj[i].nome;
+            objARetornar.habilidades = arrayDeObj[i].habilidades;
+            objARetornar.posicao = arrayDeObj[i].posicao;
+            objARetornar.nacionalidade = arrayDeObj[i].nacionalidade;
+
+            //objARetornar = {...arrayDeObj[i]};
+        }
+    }
+
+    if(objARetornar.nome !== valorString){
+        alert("Não encontrei jogador");
+    }else{
+        return objARetornar;
+    }
+}
+
+//const objDoKimpembe = funcaoDoJoao(arrayDeJogadores, "Presnel");
+//console.log(objDoKimpembe);
+
+//DOM
+//getElementById;
+//innerHTML;
+//value;
+//get Element By Id = Busque o elemento por seu Id
+const meuParagrafo = document.getElementById("paragrafo");
+console.log(meuParagrafo.innerHTML);
+console.log(meuParagrafo.innerText);
+
+ const meuLink = document.getElementById("link");
+ console.log(meuLink.innerText);
+
+const minhaLista = document.getElementById("lista-filmes");
+console.log(minhaLista.innerText);
+
+const filme1 = document.getElementById("filme1");
+console.log(filme1.innerHTML);
+
+
+const filme3 = document.getElementById("filme3");
+filme3.innerHTML = "Cidade de Deus";
+
+//adicionando elementos
+
+// const meuArrayComplexo = [
+//     {
+//        nome: "Marco Verratti",
+//        nacionalidade: "Itália",
+//        posicao: "Meio-campista",
+//        habilidades: ["passe curto", "visão de jogo", "roubada de bola"]
+//    },
+//    {
+//        nome: "Presnel Kimpembe",
+//        nacionalidade: "França",
+//        posicao: "Defensor",
+//        habilidades: ["velocidade", "força física", "leitura defensiva"]
+//    },
+//    {
+//        nome: "Sergio Ramos",
+//        nacionalidade: "Espanha",
+//        posicao: "Defensor",
+//        habilidades: ["muito bonito"]
+//    }
+// ];
+//criando um ul que vai guardar meus jogadores;
+const listaJogadores = document.createElement("ul");
+
+//buscando o elemento que vai armazenar minha lista;
+const container = document.getElementById("container");
+
+//inserindo no elemento contêiner o elemento de lista que foi criado
+container.insertAdjacentElement('beforeend', listaJogadores);
+
+console.log(listaJogadores);
+listaJogadores.setAttribute("id", "lista-jogadores");
+
+const elementoDeLista = document.getElementById("lista-jogadores");
+console.log(elementoDeLista);
+for(let i = 0; i < arrayDeJogadores.length; i++){
+    elementoDeLista.innerHTML+= `<li>${arrayDeJogadores[i]}</li>`;
+  
+}
+
+
+//meuElemento.appendChild(valor)
