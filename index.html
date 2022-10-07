@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
@@ -21,13 +22,13 @@
         <h3>CSS</h3>
         <!--<a href="https://www.google.com">Posso ser um link!</a>-->
         <ul id="lista-filmes">
-            <li id="filme1">O Auto da Compadecida</li>
-            <li id="filme2">Lisbela e o Prisioneiro</li>
-            <li id="filme3">Carandiru</li>
+            <li class="filme" id="filme1">O Auto da Compadecida</li>
+            <li class="filme" id="filme2">Lisbela e o Prisioneiro</li>
+            <li class="filme" id="filme3">Carandiru</li>
         </ul>
 
-        <input type="text" id="campo" onkeyup="exibeValorDoCampo()"/>
-        <button id="botao" type="button" onclick="buscaJogador()">Buscar jogador</button>
+        <input type="text" id="campo" onkeyup="exibeValorDoCampo(event)"/>
+        <button id="botao" type="button" onclick="buscaJogador(event)">Buscar jogador</button>
         <br/>
         <!-- <button type="button" onclick="helloWorld()">Clique em mim!</button> -->
         <p onclick="helloWorld()">Sou um parágrafo. Clique em mim</p>

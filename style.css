@@ -1,0 +1,19 @@
+@media screen and (min-width: 1200px) {
+    *{
+        font-family:  sans-serif;
+    }
+
+}
+
+@media screen and (min-width: 800px) and (max-width: 1199px) {
+    *{
+        color: red;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    *{
+        background-color: aqua;
+    }
+
+}

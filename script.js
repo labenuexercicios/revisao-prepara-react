@@ -452,8 +452,11 @@ function helloWorld() {
     console.log("Hey, Mundo!");
 }
 
-function exibeValorDoCampo() {
+function exibeValorDoCampo(event) {
     const input = document.getElementById("campo");
+    const input2 = event.target;
+    const teclaApertada = event.getModifierState("CapsLock");
+    console.log(teclaApertada);
 
 }
 
@@ -476,3 +479,6 @@ function buscaJogador() {
 
 }
 //meuElemento.appendChild(valor)
+
+const meusFilmesLi = document.querySelector("#lista-jogadores");
+console.log(meusFilmesLi);
