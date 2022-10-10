@@ -482,3 +482,5 @@ function buscaJogador() {
 
 const meusFilmesLi = document.querySelector("#lista-jogadores");
 console.log(meusFilmesLi);
+
+fim
